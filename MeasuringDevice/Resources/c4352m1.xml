@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<device type="c4352m1">
+  <scales>
+    <scale type="ac" max_value="30" min_value ="0" can_burn="true">
+      <point angle="-5" value="-inf" />
+      <point angle="0" value="0" />
+      <point angle="3.2" value="1" />
+      <point angle="6.4" value="2" />
+      <point angle="9.6" value="3" />
+      <point angle="12.9" value="4" />
+      <point angle="16.3" value="5" />
+      <point angle="19" value="6" />
+      <point angle="22" value="7" />
+      <point angle="24.8" value="8" />
+      <point angle="27.6" value="9" />
+      <point angle="30.3" value="10" />
+      <point angle="33.1" value="11" />
+      <point angle="36" value="12" />
+      <point angle="39" value="13" />
+      <point angle="41.8" value="14" />
+      <point angle="44.6" value="15" />
+      <point angle="47.4" value="16" />
+      <point angle="50.2" value="17" />
+      <point angle="53.1" value="18" />
+      <point angle="56" value="19" />
+      <point angle="58.8" value="20" />
+      <point angle="61.8" value="21" />
+      <point angle="64.5" value="22" />
+      <point angle="67.6" value="23" />
+      <point angle="70.4" value="24" />
+      <point angle="73" value="25" />
+      <point angle="76.3" value="26" />
+      <point angle="79.6" value="27" />
+      <point angle="82.8" value="28" />
+      <point angle="86.1" value="29" />
+      <point angle="89.3" value="30" />
+      <point angle="96.5" value="+inf" />
+    </scale>
+    <scale type="dc" max_value="30" can_burn="true">
+      <point angle="-5" value="-inf" />
+      <point angle="0" value="0" />
+      <point angle="3.2" value="1" />
+      <point angle="6.4" value="2" />
+      <point angle="9.6" value="3" />
+      <point angle="12.9" value="4" />
+      <point angle="16.3" value="5" />
+      <point angle="19" value="6" />
+      <point angle="22" value="7" />
+      <point angle="24.8" value="8" />
+      <point angle="27.6" value="9" />
+      <point angle="30.3" value="10" />
+      <point angle="33.1" value="11" />
+      <point angle="36" value="12" />
+      <point angle="39" value="13" />
+      <point angle="41.8" value="14" />
+      <point angle="44.6" value="15" />
+      <point angle="47.4" value="16" />
+      <point angle="50.2" value="17" />
+      <point angle="53.1" value="18" />
+      <point angle="56" value="19" />
+      <point angle="58.8" value="20" />
+      <point angle="61.8" value="21" />
+      <point angle="64.5" value="22" />
+      <point angle="67.6" value="23" />
+      <point angle="70.4" value="24" />
+      <point angle="73" value="25" />
+      <point angle="76.3" value="26" />
+      <point angle="79.6" value="27" />
+      <point angle="82.8" value="28" />
+      <point angle="86.1" value="29" />
+      <point angle="89.3" value="30" />
+      <point angle="96.5" value="+inf" />
+    </scale>
+    <scale type="ohm" max_value="5" can_burn="false">
+      <point angle="96.5" value="-inf" />
+      <point angle="89.2" value="0" />
+      <point angle="85.5" value="0.01" />
+      <point angle="81.9" value="0.02" />
+      <point angle="78.2" value="0.03" />
+      <point angle="74.7" value="0.04" />
+      <point angle="71.7" value="0.05" />
+      <point angle="69" value="0.06" />
+      <point angle="66.4" value="0.07" />
+      <point angle="64.1" value="0.08" />
+      <point angle="61.8" value="0.09" />
+      <point angle="59.5" value="0.1" />
+      <point angle="56.3" value="0.12" />
+      <point angle="52.8" value="0.14" />
+      <point angle="50.1" value="0.16" />
+      <point angle="47.2" value="0.18" />
+      <point angle="44.8" value="0.2" />
+      <point angle="40.8" value="0.25" />
+      <point angle="37.6" value="0.3" />
+      <point angle="34.6" value="0.35" />
+      <point angle="31.8" value="0.4" />
+      <point angle="28.8" value="0.45" />
+      <point angle="25.6" value="0.5" />
+      <point angle="21.8" value="0.6" />
+      <point angle="20.1" value="0.7" />
+      <point angle="18.3" value="0.8" />
+      <point angle="16.6" value="0.9" />
+      <point angle="14.6" value="1" />
+      <point angle="11.3" value="2" />
+      <point angle="7.8" value="3" />
+      <point angle="4" value="5" />
+      <point angle="0" value="+inf" />
+    </scale>
+  </scales>
+  <controls>
+    <tumbler name="limit">
+      <group name="special">
+        <point angle="0" value="0" msg="48"/>
+        <point angle="136" value="0.075" msg="34"/>
+      </group>
+      <group name="current">
+        <point angle="14" value="6" msg="44"/>
+        <point angle="28" value="1.5" msg="43"/>
+        <point angle="44" value="0.6" msg="42"/>
+        <point angle="60" value="0.15" msg="41"/>
+        <point angle="74" value="0.006" msg="35"/>
+        <point angle="90" value="0.0015" msg="36"/>
+        <point angle="104" value="0.0006" msg="37"/>
+        <point angle="120" value="0.00015" msg="38"/>
+      </group>
+      <group name="ohm">
+        <point angle="150" value="1000000" msg="33"/>
+        <point angle="164" value="100000" msg="32"/>
+        <point angle="180" value="10000" msg="31"/>
+        <point angle="194" value="1000" msg="25"/>
+        <point angle="210" value="1" msg="26"/>
+      </group>
+      <group name="voltage">
+        <point angle="222" value="0.3" msg="27"/>
+        <point angle="238" value="1.5" msg="28"/>
+        <point angle="254" value="6" msg="24"/>
+        <point angle="270" value="15" msg="23"/>
+        <point angle="284" value="30" msg="22"/>
+        <point angle="300" value="60" msg="21"/>
+        <point angle="316" value="150" msg="16"/>
+        <point angle="330" value="300" msg="17"/>
+        <point angle="344" value="600" msg="18"/>
+      </group>
+    </tumbler>
+    <tumbler name="type">
+      <point angle="1" value="dc" msg="1"/>
+      <point angle="3" value="ac" msg="3"/>
+      <point angle="2" value="ohm" msg="2"/>
+      <point angle="0" value="off" msg="0"/>
+    </tumbler>
+  </controls>
+</device>
+

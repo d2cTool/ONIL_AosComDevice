@@ -1,0 +1,178 @@
+﻿<Window x:Class="ComDevice.View"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d" 
+             xmlns:local="clr-namespace:ComDevice"
+             Title="Измерительный прибор Ц4352-М1" MinHeight="300" MinWidth="550" Height="450" Width="760" Icon="Resources\Icon\logo1.png">
+    <DockPanel>
+        <Viewbox Stretch="Uniform" DockPanel.Dock="Top">
+            <Canvas x:Name="canvas" Width="750" Height="370">
+                <Image Source="Resources\Imgs\c4352m1.png" Canvas.Left="0" Canvas.Top="0"/>
+                <TextBlock x:Name="uiPlusProbe" Canvas.Left="690" Canvas.Top="58"  Text="{Binding Plus}" Visibility="{Binding DebugInfoVisibility}" />
+                <TextBlock x:Name="uiMinusProbe" Canvas.Left="410" Canvas.Top="58"  Text="{Binding Minus}" Visibility="{Binding DebugInfoVisibility}" />
+                <Image Name="UiSelector" Source="Resources\Imgs\selector.png" Canvas.Left="486" Canvas.Top="131" RenderTransformOrigin="0.5,0.5">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding SelectorNextPosition}"/>
+                        </i:EventTrigger>
+                        <i:EventTrigger EventName="MouseRightButtonUp">
+                            <i:InvokeCommandAction Command="{Binding SelectorPrevPosition}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="{Binding Selector}"/>
+                            <TranslateTransform X="0" Y="0"/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image Name="UiGuardOnBtn" Source="Resources\Imgs\button_sq.png" Canvas.Left="53" Canvas.Top="43" Opacity="{Binding GuardOnBtn}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding GuardOnBtnClick}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                    <!--Image.Triggers>
+                    <EventTrigger RoutedEvent="MouseLeftButtonUp">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation From="1" To="0" Duration="0:0:0.1" AutoReverse="True"
+                                    Storyboard.TargetProperty="Opacity" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Image.Triggers-->
+                </Image>
+                <Image Name="UiTypeDcBtn" Source="Resources\Imgs\button_sq.png" Canvas.Left="527" Canvas.Top="301" Opacity="{Binding DcBtn}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding DcBtnClick}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <Image Name="UiTypeAcBtn" Source="Resources\Imgs\button_sq.png" Canvas.Left="635" Canvas.Top="301" Opacity="{Binding AcBtn}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding AcBtnClick}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <Image Name="UiTypeOhmBtn" Source="Resources\Imgs\button_sq.png" Canvas.Left="582" Canvas.Top="301" Opacity="{Binding OhmBtn}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding OhmBtnClick}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <Image Name="UiGuardOffBtn" Source="Resources\Imgs\button_cr.png" Canvas.Left="293" Canvas.Top="43" Opacity="{Binding GuardOffBtn}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonUp">
+                            <i:InvokeCommandAction Command="{Binding GuardOffBtnClick}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Image>
+                <Image Name="UiArrow" Source="Resources\Imgs\arrow.png" Canvas.Left="56" Canvas.Top="175" RenderTransformOrigin="1,1">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="{Binding Arrow}"/>
+                            <TranslateTransform X="0" Y="0"/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </Canvas>
+        </Viewbox>
+        <StatusBar DockPanel.Dock="Bottom" Height="Auto" Visibility="{Binding DebugInfoVisibility}">
+            <StatusBar.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                </ItemsPanelTemplate>
+            </StatusBar.ItemsPanel>
+            <StatusBarItem  Grid.Row="0" Grid.Column="0">
+                <TextBlock Text="Прибор: " />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="0" Grid.Column="1">
+                <TextBlock Name="uiSerial"  Text="{Binding DeviceSerial}" />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="0" Grid.Column="2">
+                <TextBlock Text="Плата: " />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="0" Grid.Column="3">
+                <TextBlock Name="uiBoardSerial"  Text="{Binding SubDeviceSerial}" />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="0" Grid.Column="4">
+                <TextBlock Text="Прошивка: " />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="0" Grid.Column="5">
+                <TextBlock Name="uiFirmware"  Text="{Binding FirmwareVersion}" />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="0" Grid.Column="6">
+                <TextBlock Text="Тип изм.: " />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="0" Grid.Column="7">
+                <TextBlock Text="{Binding MType}" />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="0" Grid.Column="8">
+                <TextBlock Text="Качество: " />
+            </StatusBarItem>
+             <StatusBarItem  Grid.Row="0" Grid.Column="9">
+                <TextBlock  Text="{Binding MQuality}" />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="1" Grid.Column="0">
+                <TextBlock Text="acI: " />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="1" Grid.Column="1">
+                <TextBlock Text="{Binding acI}" />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="1" Grid.Column="2">
+                <TextBlock Text="dcI: " />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="1" Grid.Column="3">
+                <TextBlock Text="{Binding dcI}" />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="1" Grid.Column="4">
+                <TextBlock Text="acU: " />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="1" Grid.Column="5">
+                <TextBlock Text="{Binding acU}" />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="1" Grid.Column="6">
+                <TextBlock Text="dcU: " />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="1" Grid.Column="7">
+                <TextBlock Text="{Binding dcU}" />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="1" Grid.Column="8">
+                <TextBlock Text="ohm: " />
+            </StatusBarItem>
+            <StatusBarItem  Grid.Row="1" Grid.Column="9">
+                <TextBlock Text="{Binding ohm}" />
+            </StatusBarItem>
+        </StatusBar>
+        <!--Grid>
+        </-->
+    </DockPanel>
+</Window>
